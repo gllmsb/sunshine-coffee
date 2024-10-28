@@ -1,0 +1,136 @@
+@use '../../styles/variables' as *;
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $black;
+  padding: 3rem 3rem;
+  position: relative;
+  z-index: 2;
+
+  .centerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    h1 {
+      font-family: $licorice;
+      line-height: 2.5rem;
+      letter-spacing: 2px;
+      font-size: 2.5rem;
+      font-weight: 200;
+      color: $white;
+      margin: 0;
+      padding-bottom: 1rem;
+    }
+
+    .floatingIcon {
+      width: 250px;
+      height: 250px;
+      background-color: $black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 100%;
+      transform: translateY(-50%);
+      image-rendering: auto; 
+
+      clip-path: inset(50% 0 0 0); 
+
+      img {
+        width: 40%;
+        height: 110px;
+        margin-bottom: -5rem;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .navIcons {
+    position: absolute;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+
+    .regionButtonContainer {
+      margin-right: 1.5rem;
+
+      button {
+        background: transparent;
+        color: $white;
+        border: 1px solid $white;
+        padding: 0.5rem 1rem;
+        font-family: $inika;
+        cursor: pointer;
+      }
+    }
+
+    .icon {
+      width: 28px;
+      height: 28px;
+      margin-left: 1rem;
+      cursor: pointer;
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+.headerImageContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  border-bottom: 2rem solid $dark-gray;
+
+  .headerImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(55, 53, 53, 0.457); 
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .headerText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: $white;
+    z-index: 2;
+
+    h2 {
+      font-family: $licorice;
+      font-size: 7rem;
+      font-weight: 200;
+      margin: 0;
+    }
+
+    p {
+      font-family: $licorice;
+      font-size: 7rem;
+      line-height: 7rem;
+      font-weight: 200;
+      white-space: nowrap;
+      overflow: hidden;
+      margin: 0;
+    }
+  }
+}
+

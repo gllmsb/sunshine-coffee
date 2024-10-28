@@ -15,7 +15,7 @@ export const RegionButton = () => {
   return (
     <div className={styles.regionButtonContainer}>
         <button onClick={toggleDropdown}  className={styles.regionButton}>
-            {selectedLangauge}
+            {selectedLanguage}
         </button>
         {isOpen && (
             <div className={styles.dropdownMenu}>
