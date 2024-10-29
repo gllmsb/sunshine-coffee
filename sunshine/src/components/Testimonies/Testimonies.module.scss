@@ -1,0 +1,64 @@
+@use '../../styles/variables' as *;
+
+.testimoniesContainer {
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 0.8rem solid $black;
+}
+
+.title {
+  font-family: $licorice;
+  font-weight: 200;
+  font-size: 5.5rem;
+  line-height: 160px;
+  margin-top: -0.3rem;
+  margin-bottom: 1rem;
+}
+
+.testimonyGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonyCard {
+  text-align: center;
+  padding: 1rem;
+}
+
+.name {
+  font-family: $inika;
+  font-weight: 200;
+  font-size: 1.8rem;
+  color: $black;
+}
+
+.text {
+  font-family: $inika;
+  font-size: 1rem;
+  color: $black;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .testimonyGrid {
+    grid-template-columns: 1fr; 
+    gap: 1.5rem;
+  }
+
+  .testimonyCard {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .testimonyGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

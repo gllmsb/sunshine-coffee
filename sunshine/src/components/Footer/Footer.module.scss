@@ -1,0 +1,49 @@
+@use '../../styles/variables' as *;
+
+.footerContainer {
+  display: flex;
+  justify-content: center;
+  background-color: $dark-gray;
+  padding: 2rem 0;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  color: $white;
+  font-family: $inika;
+  max-width: 1200px;
+  width: 100%;
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: $white;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1rem;
+  color: $white;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr; 
+    text-align: center; 
+    gap: 1.5rem; 
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem; 
+  }
+}

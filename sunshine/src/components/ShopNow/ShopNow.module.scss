@@ -1,0 +1,69 @@
+@use '../../styles/variables' as *;
+
+.shopNowContainer {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 0.8rem solid $dark-gray;
+}
+
+.title {
+    font-family: $licorice;
+    font-weight: 200;
+    font-size: 5rem;
+    margin-top: -0.3rem;
+}
+
+.description {
+    font-family: $inika;
+    font-size: 1rem;
+    line-height: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: $black;
+}
+
+.shopButton {
+    position: relative;
+    background-color: $black;
+    color: $white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-family: $inika;
+    font-size: 1.5rem;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+    z-index: 1;
+    display: inline-block; 
+    height: 4rem;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: $white;
+        z-index: -1;
+        transition: transform 0.4s ease;
+    }
+
+    &:hover::before {
+        transform: translateX(100%);
+    }
+
+    &:hover {
+        color: $black;
+        border: 2px solid $black;
+    }
+}
+
+
+
+
