@@ -1,0 +1,181 @@
+@use '../../styles/variables' as *;
+
+.productContainer {
+  padding: 2rem;
+  text-align: center;
+
+  h2 {
+    font-family: $licorice;
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 2rem;
+  }
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 2rem;
+  max-width: 1200px; 
+  margin: 0 auto; 
+}
+
+.productCard {
+  background-color: $white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.productName {
+  font-family: $licorice;
+  font-size: 3rem;
+  color: $black;
+  margin-bottom: 1rem;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  max-height: 350px; 
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.productRoast {
+  font-family: $inika;
+  font-size: 1rem;
+  color: $dark-gray;
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+
+  .roastDot,
+  .roastDotFilled {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  .roastDot {
+    background-color: $black;
+  }
+
+  .roastDotFilled {
+    background-color: $caramel-brown;
+  }
+}
+
+.productPrice {
+  font-family: $inika;
+  font-size: 1rem;
+  color: $black;
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.addToCartButton {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  border: 1px solid $black;
+  color: $black;
+  padding: 1rem 8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s;
+  z-index: 1; 
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: $black; 
+    transition: transform 0.4s ease;
+    z-index: -1; 
+  }
+
+  &:hover::before {
+    transform: translateX(100%); 
+  }
+
+  &:hover {
+    color: $white; 
+  }
+}
+
+@media (max-width: 1024px){
+  .productContainer {
+    padding: 1.5rem;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1.5rem;
+  }
+
+  .productCard {
+    padding: 1.2rem;
+  }
+
+  .productName {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .productImage {
+    max-height: 300px; 
+  }
+
+  .productRoast {
+    font-size: 1rem;
+    gap: 0.15rem;
+
+    .roastDot,
+    .roastDotFilled {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  .productPrice {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .addToCartButton {
+    padding: 0.75rem 10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .productContainer {
+    padding: 1rem;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .productImage {
+    max-height: 300px; 
+  }
+}

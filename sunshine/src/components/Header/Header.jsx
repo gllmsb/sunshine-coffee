@@ -2,12 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import { RegionButton } from '../RegionButton/RegionButton';
+import cartIcon from '/src/assets/images/cart.png'; 
 
-const LogoIcon = '/src/assets/images/coffee.png';
-const CartIcon = '/src/assets/images/cart.png';
-const ProfileIcon = '/src/assets/images/user.png';
-
-export const Header = () => {
+export const Header = ({ openCart }) => { 
   return (
     <header className={styles.header}>
       <div className={styles.centerContent}>
@@ -16,7 +13,7 @@ export const Header = () => {
         </Link>
         <div className={styles.floatingIcon}>
           <Link to="/">
-            <img src={LogoIcon} alt="Coffee icon" />
+            <img src="/src/assets/images/coffee.png" alt="Coffee icon" />
           </Link>
         </div>
       </div>
@@ -24,9 +21,14 @@ export const Header = () => {
         <div className={styles.regionButtonContainer}>
           <RegionButton />
         </div>
-        <img src={CartIcon} alt="Cart" className={styles.icon} />
+        <img 
+          src={cartIcon} 
+          alt="Cart" 
+          className={styles.icon} 
+          onClick={openCart} 
+        />
         <Link to="/login">
-          <img src={ProfileIcon} alt="Profile" className={styles.icon} />
+          <img src="/src/assets/images/user.png" alt="Profile" className={styles.icon} />
         </Link>
       </div>
     </header>
