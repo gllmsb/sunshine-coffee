@@ -1,0 +1,248 @@
+@use '../../styles/variables' as *;
+
+.productDetailWrapper {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1024px) { 
+    max-width: 90%;
+    margin-top: 4rem;
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 768px) { 
+    max-width: 95%;
+    margin-top: 3rem;
+    padding: 1rem;
+  }
+}
+
+.backButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: $inika;
+    color: $black;
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    position: relative;
+  
+    &:hover {
+      text-decoration: underline;
+  
+      .backIcon {
+        animation: bounce 0.3s infinite alternate;
+      }
+    }
+  
+    .backIcon {
+      width: 30px;
+      height: 30px;
+      transition: transform 0.3s ease;
+    }
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-5px);
+    }
+  }
+  
+
+.productDetailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+  background-color: $white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) { 
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 768px) { 
+    padding: 1rem;
+  }
+}
+
+.productImageContainer {
+    width: 100%;
+    max-width: 600px;
+    height: 550px; 
+    margin-bottom: 2rem;
+    overflow: hidden;
+  
+    @media (max-width: 768px) { 
+      height: 300px;
+    }
+  
+    @media (max-width: 480px) { 
+      height: auto;
+      max-height: 250px;
+    }
+  }
+  
+  .productImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  
+
+.productInfo {
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem;
+
+  @media (max-width: 768px) { 
+    padding: 0 0.5rem;
+  }
+}
+
+.productName {
+  font-family: $licorice;
+  font-size: 2.5rem;
+  font-weight: 200;
+  color: $black;
+  margin-bottom: 1rem;
+
+  @media (max-width: 1024px) { 
+    font-size: 2rem;
+  }
+
+  @media (max-width: 768px) { 
+    font-size: 1.8rem;
+  }
+}
+
+.productDescription {
+  font-family: $inika;
+  font-size: 1rem;
+  color: $dark-gray;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+
+  @media (max-width: 1024px) { 
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) { 
+    font-size: 0.9rem;
+    padding: 0 0.5rem;
+  }
+}
+
+.productRoast {
+  font-family: $inika;
+  font-size: 1rem;
+  color: $dark-gray;
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-bottom: 1.5rem;
+
+  .roastDot,
+  .roastDotFilled {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .roastDot {
+    background-color: $black;
+  }
+
+  .roastDotFilled {
+    background-color: $caramel-brown;
+  }
+
+  @media (max-width: 1024px) { 
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 768px) { 
+    font-size: 0.85rem;
+  }
+}
+
+.productPrice {
+  font-family: $inika;
+  font-size: 1.5rem;
+  color: $black;
+  font-weight: bold;
+  margin-bottom: 2rem;
+
+  @media (max-width: 1024px) { 
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: 768px) { 
+    font-size: 1.2rem;
+  }
+}
+
+.addToCartButton {
+  position: relative;
+  overflow: hidden;
+  font-family: $inika;
+  padding: 0.8rem 2rem;
+  border: 2px solid $black;
+  background-color: $black;
+  color: $white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: $caramel-brown;
+    transition: transform 0.4s ease;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    transform: translateX(100%);
+  }
+
+  &:hover {
+    color: $black;
+  }
+
+  @media (max-width: 1024px) { 
+    padding: 0.7rem 1.5rem;
+  }
+
+  @media (max-width: 768px) { 
+    padding: 0.6rem 1.2rem;
+  }
+}

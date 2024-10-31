@@ -11,6 +11,8 @@ import { LoginPage } from './pages/LoginPage';
 import { ProductPage } from './pages/ProductPage';
 import { CartProvider } from './components/CartProvider/CartProvider';
 import { Cart } from './components/Cart/Cart';
+import { ProductDetail } from './components/ProductDetail/ProductDetail';
+import { CheckoutPage } from './pages/CheckoutPage';
 
 function MainContent() {
   return (
@@ -37,6 +39,8 @@ function App() {
           <Route path="/" element={<MainContent />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/products" element={<ProductPage />} />
+          <Route path="/products/:id" element={<ProductDetail />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
         <Footer />
         {isCartOpen && <Cart onClose={closeCart} />} 

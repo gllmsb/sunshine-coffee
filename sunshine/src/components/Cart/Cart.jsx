@@ -1,15 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Cart.module.scss';
 import closeIcon from '../../assets/images/close.png';
 import { useCart } from '../CartProvider/CartProvider';
 
 export const Cart = ({ onClose }) => {
   const { cartItems, clearCart, increaseQuantity, decreaseQuantity } = useCart();
+  const navigate = useNavigate(); 
   const taxRate = 0.25;
   const cartTotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   const taxAmount = cartTotal * taxRate;
   const finalTotal = cartTotal + taxAmount;
   const totalItemsInCart = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const goToCheckout = () => {
+    navigate('/checkout');
+    onClose();
+  };
 
   return (
     <div className={styles.cartOverlay}>
@@ -45,12 +52,12 @@ export const Cart = ({ onClose }) => {
           <p className={styles.itemCount}>Items in Cart: {totalItemsInCart}</p>
         </div>
         <div className={styles.buttonRow}>
-            <button className={styles.clearCartButton} onClick={clearCart}>
+          <button className={styles.clearCartButton} onClick={clearCart}>
             <span>Clear Cart</span>
-            </button>
-            <button className={styles.checkoutButton}>
+          </button>
+          <button className={styles.checkoutButton} onClick={goToCheckout}>
             <span>Go to Checkout</span>
-        </button>
+          </button>
         </div>
       </div>
     </div>

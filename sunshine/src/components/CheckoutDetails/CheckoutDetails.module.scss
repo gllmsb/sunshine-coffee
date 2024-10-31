@@ -1,0 +1,222 @@
+@use '../../styles/variables' as *;
+
+.checkoutWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.resumeShoppingContainer {
+  align-self: flex-start;
+  margin-bottom: 3.5rem;
+}
+
+.resumeShopping {
+  display: flex;
+  align-items: center;
+  font-family: $inika;
+  font-size: 1rem;
+  color: $black;
+  text-decoration: none;
+
+  .backIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease;
+    margin-left: -1.8rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  
+    .backIcon {
+      animation: bounce 0.3s infinite alternate;
+    }
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: $white;
+  border-radius: 8px;
+}
+
+.checkoutTitle {
+  font-family: $licorice;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.checkoutContent {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.formSection {
+  flex: 1;
+}
+
+.checkoutForm {
+  display: flex;
+  flex-direction: column;
+
+  .formField {
+    margin-bottom: 1.5rem;
+    font-family: $inika;
+
+    label {
+      display: block;
+      font-family: $inika;
+      margin-bottom: 0.5rem;
+      font-family: $inika;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid $black;
+      border-radius: 4px;
+      font-family: $inika;
+    }
+
+    .inputError {
+      border-color: red;
+    }
+
+    .errorText {
+      color: red;
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.summarySection {
+  flex: 1;
+
+  .summaryItem {
+    display: flex;
+    justify-content: space-between;
+    font-family: $inika;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid $dark-gray;
+  
+    span:first-child {
+      flex: 2;
+    }
+  
+    span:nth-child(2) {
+      flex: 1;
+      text-align: center; 
+      min-width: 40px; 
+    }
+  
+    span:last-child {
+      flex: 1;
+      text-align: right;
+    }
+  }  
+
+  .summaryTotal {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: $black;
+
+    p {
+      color: $black;
+      font-family: $inika;
+    }
+  }
+
+  .totalAmount {
+    color: $black;
+  }
+
+  .shippingOptions {
+    border: 1px solid $black;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-top: 1.5rem;
+
+    h4 {
+      font-family: $inika;
+      margin-bottom: 0.5rem;
+    }
+
+    .shippingOption {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+      font-family: $inika;
+
+      input {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .payNowButton {
+    position: relative;
+    overflow: hidden;
+    margin-top: 2rem;
+    background-color: $black;
+    color: $white;
+    padding: 1rem;
+    width: 100%;  
+    text-align: center;
+    font-family: $inika;
+    font-size: 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    border: 2px solid $black; 
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;  
+      width: 100%;
+      height: 100%;
+      background-color: $light-brown;
+      z-index: 0;  
+      transition: transform 0.4s ease;
+    }
+  
+    &:hover::before {
+      transform: translateX(100%);  
+    }
+  
+    &:hover {
+      color: $black;
+    }
+  
+    span {
+      position: relative;
+      z-index: 1;  
+    }
+  }
+}

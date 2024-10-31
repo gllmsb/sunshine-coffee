@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Product.module.scss';
 import { useCart } from '../CartProvider/CartProvider';
 
@@ -6,7 +7,7 @@ export const Product = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const { addToCart } = useCart(); 
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -35,27 +36,32 @@ export const Product = () => {
       <h2>Our Picks for You</h2>
       <div className={styles.productGrid}>
         {products.map((product) => (
-          <div key={product.id} className={styles.productCard}>
-            <h3 className={styles.productName}>{product.name}</h3>
-            <img src={product.image} alt={product.name} className={styles.productImage} />
-            <div className={styles.productRoast}>
-              Roast: {Array.from({ length: 5 }).map((_, index) => (
-                <span
-                  key={index}
-                  className={
-                    index < product.roast ? styles.roastDotFilled : styles.roastDot
-                  }
-                />
-              ))}
+          <Link to={`/products/${product.id}`} key={product.id} className={styles.productLink}>
+            <div className={styles.productCard}>
+              <h3 className={styles.productName}>{product.name}</h3>
+              <img src={product.image} alt={product.name} className={styles.productImage} />
+              <div className={styles.productRoast}>
+                Roast: {Array.from({ length: 5 }).map((_, index) => (
+                  <span
+                    key={index}
+                    className={
+                      index < product.roast ? styles.roastDotFilled : styles.roastDot
+                    }
+                  />
+                ))}
+              </div>
+              <p className={styles.productPrice}>{product.price} DKK</p>
+              <button
+                className={styles.addToCartButton}
+                onClick={(e) => {
+                  e.preventDefault();
+                  addToCart(product);
+                }}
+              >
+                Add to cart
+              </button>
             </div>
-            <p className={styles.productPrice}>{product.price} DKK</p>
-            <button 
-              className={styles.addToCartButton} 
-              onClick={() => addToCart(product)} 
-            >
-              Add to cart
-            </button>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
